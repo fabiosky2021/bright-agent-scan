@@ -14,13 +14,122 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      apoios: {
+        Row: {
+          candidato_id: string
+          created_at: string
+          id: string
+          user_id: string
+        }
+        Insert: {
+          candidato_id: string
+          created_at?: string
+          id?: string
+          user_id: string
+        }
+        Update: {
+          candidato_id?: string
+          created_at?: string
+          id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "apoios_candidato_id_fkey"
+            columns: ["candidato_id"]
+            isOneToOne: false
+            referencedRelation: "candidatos"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      avisos: {
+        Row: {
+          candidato_id: string | null
+          created_at: string
+          id: string
+          mensagem: string
+          titulo: string
+        }
+        Insert: {
+          candidato_id?: string | null
+          created_at?: string
+          id?: string
+          mensagem: string
+          titulo: string
+        }
+        Update: {
+          candidato_id?: string | null
+          created_at?: string
+          id?: string
+          mensagem?: string
+          titulo?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "avisos_candidato_id_fkey"
+            columns: ["candidato_id"]
+            isOneToOne: false
+            referencedRelation: "candidatos"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      candidatos: {
+        Row: {
+          confianca_verde: number
+          created_at: string
+          foto_url: string | null
+          id: string
+          nome: string
+          ordem: number
+          partido: string
+          pontos_negativos: string[]
+          pontos_positivos: string[]
+          propostas_destaque: string[]
+          video_url: string | null
+          visualizacoes: number
+        }
+        Insert: {
+          confianca_verde?: number
+          created_at?: string
+          foto_url?: string | null
+          id: string
+          nome: string
+          ordem?: number
+          partido: string
+          pontos_negativos?: string[]
+          pontos_positivos?: string[]
+          propostas_destaque?: string[]
+          video_url?: string | null
+          visualizacoes?: number
+        }
+        Update: {
+          confianca_verde?: number
+          created_at?: string
+          foto_url?: string | null
+          id?: string
+          nome?: string
+          ordem?: number
+          partido?: string
+          pontos_negativos?: string[]
+          pontos_positivos?: string[]
+          propostas_destaque?: string[]
+          video_url?: string | null
+          visualizacoes?: number
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      alternar_apoio: { Args: { _candidato_id: string }; Returns: number }
+      registrar_visualizacao: {
+        Args: { _candidato_id: string }
+        Returns: undefined
+      }
     }
     Enums: {
       [_ in never]: never
