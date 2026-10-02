@@ -82,11 +82,16 @@ export type Database = {
           foto_url: string | null
           id: string
           nome: string
+          nome_completo: string | null
+          numero: number | null
+          observacao: string | null
           ordem: number
           partido: string
           pontos_negativos: string[]
           pontos_positivos: string[]
           propostas_destaque: string[]
+          tse_url: string
+          vice: string | null
           video_url: string | null
           visualizacoes: number
         }
@@ -96,11 +101,16 @@ export type Database = {
           foto_url?: string | null
           id: string
           nome: string
+          nome_completo?: string | null
+          numero?: number | null
+          observacao?: string | null
           ordem?: number
           partido: string
           pontos_negativos?: string[]
           pontos_positivos?: string[]
           propostas_destaque?: string[]
+          tse_url?: string
+          vice?: string | null
           video_url?: string | null
           visualizacoes?: number
         }
@@ -110,11 +120,16 @@ export type Database = {
           foto_url?: string | null
           id?: string
           nome?: string
+          nome_completo?: string | null
+          numero?: number | null
+          observacao?: string | null
           ordem?: number
           partido?: string
           pontos_negativos?: string[]
           pontos_positivos?: string[]
           propostas_destaque?: string[]
+          tse_url?: string
+          vice?: string | null
           video_url?: string | null
           visualizacoes?: number
         }
